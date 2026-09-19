@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.Toastify__toast {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 12px !important;
+  min-height: auto !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;  
+  width: 100% !important; 
+}
+
+.Toastify__toast-body {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.Toastify__toast-container {
+  width: 100% !important;
+  max-width: 400px;       
+  width: auto !important;
+  padding: 0 !important;
+}
+
+.Toastify__close-button {
+  display: none;
+}
+
+@keyframes assistantOpen {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes assistantTyping {
+    0%,
+    60%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+.assistant-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: currentColor;
+    opacity: 0.3;
+    animation: assistantTyping 1.4s infinite ease-in-out;
+}
